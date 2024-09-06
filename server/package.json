@@ -1,0 +1,14 @@
+{
+  "_comment1": "dev: nodemon index.js --> for making frequent code changes in development stage (cli cmd = npm run dev)- watches file for changes and automatically restarts server on save, hence why there may be a brief downtime where it can't handle requests while restarting; stateless (in-memory data is lost when app restarts).",
+  "_comment2": "start: node index.js --> for deploying app to production (cli cmd = npm start)- any changes to the backend index.js server file will require you to run npm start again, restarting server to see the changes; has state persistence (any in-memory data + open connection will persist as long as app is running). note: don't need to do cmd npm run start as npm start is a special npm cmd, like npm test and npm stop. if designated file is not specified in json package as it is here (index.js), npm start tries to run server.js by default",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
