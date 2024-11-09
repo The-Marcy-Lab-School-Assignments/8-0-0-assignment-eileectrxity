@@ -52,16 +52,20 @@ const serveContact = (req, res) => {
   </div>`);
 }
 const serveForm = (req, res) => {
+  /** FEEDBACK: This route is not sending back any data! */
   const form = 9;
   res.send(form);
 }
 const serveFriends = (req, res) => {
+  /** FEEDBACK: Here you are abstracting the name from the query however you are also getting it by doing req.query.name. 
+   * This is conflicting with the code.  */
   const { name } = req.query.name;
   if (dogs[name]) res.send(dogs);
 }
 
 app.get('/', serveIndex); //html file
 app.get('/contact', serveContact); //raw html
+/** FEEDBACK: These two routes are currently not working! */
 app.get('/api/contact/:query', serveForm); //data
 app.get('/api/dogs/:name/friends', serveFriends); //data + query
 
